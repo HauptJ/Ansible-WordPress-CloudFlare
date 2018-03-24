@@ -107,6 +107,9 @@ Vagrant.configure("2") do |config|
     pushd roles/ansible-role-php-fpm/
     git checkout pipeline
     popd
+    pushd roles/ansible-role-wordpress/
+    git checkout pipeline
+    popd
     ansible-playbook site.yml
     popd
     chown -R vagrant:vagrant CloudPress2/
