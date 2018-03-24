@@ -9,7 +9,7 @@ auto_updates: true
 ##### SE Linux #####
 
 # Security Enhanced Linux Disable or Enable
-sel_disable: false
+sel_disable: true
 
 ##### MariaDB #####
 
