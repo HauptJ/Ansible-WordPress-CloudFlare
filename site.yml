@@ -9,8 +9,9 @@
   roles:
     - ansible-role-repo-epel
     - ansible-role-repo-remi
-    # - ansible-role-selinux
+    - ansible-role-selinux
     - ansible-role-fail2ban-firewalld
     - ansible-role-openresty
     - ansible-role-mariadb
+    - ansible-role-php-fpm
     # - ansible-role-wordpress

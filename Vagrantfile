@@ -98,6 +98,12 @@ Vagrant.configure("2") do |config|
     git clone --recursive https://github.com/HauptJ/CloudPress2.git
     pushd CloudPress2/
     git submodule update --recursive --remote
+    pushd roles/ansible-role-openresty/
+    git checkout pipeline
+    popd
+    pushd roles/ansible-role-mariadb/
+    git checkout pipeline
+    popd
     ansible-playbook site.yml
     popd
     chown -R vagrant:vagrant CloudPress2/
