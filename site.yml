@@ -1,0 +1,16 @@
+---
+- name: Install Fail2ban, WordPress, Redis, MariaDB, Nginx, and PHP-FPM
+  hosts: wp-dev
+  strategy: debug
+  #remote_user: centos
+  become: yes
+
+
+  roles:
+    - ansible-role-repo-epel
+    - ansible-role-repo-remi
+    - ansible-role-selinux
+    - ansible-role-fail2ban-firewalld
+    - ansible-role-openresty
+    - ansible-role-mariadb
+    - ansible-role-wordpress

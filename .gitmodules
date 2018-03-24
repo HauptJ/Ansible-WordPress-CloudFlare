@@ -1,0 +1,30 @@
+[submodule "ansible-role-openresty"]
+	path = ansible-role-openresty
+	url = https://github.com/HauptJ/ansible-role-openresty.git
+[submodule "roles/ansible-role-openresty"]
+	path = roles/ansible-role-openresty
+	url = https://github.com/HauptJ/ansible-role-openresty.git
+[submodule "roles/ansible-role-redis"]
+	path = roles/ansible-role-redis
+	url = https://github.com/HauptJ/ansible-role-redis.git
+[submodule "roles/ansible-role-php-fpm"]
+	path = roles/ansible-role-php-fpm
+	url = https://github.com/HauptJ/ansible-role-php-fpm.git
+[submodule "roles/ansible-role-mariadb"]
+	path = roles/ansible-role-mariadb
+	url = https://github.com/HauptJ/ansible-role-mariadb.git
+[submodule "roles/ansible-role-repo-epel"]
+	path = roles/ansible-role-repo-epel
+	url = https://github.com/HauptJ/ansible-role-repo-epel.git
+[submodule "roles/ansible-role-repo-remi"]
+	path = roles/ansible-role-repo-remi
+	url = https://github.com/HauptJ/ansible-role-repo-remi.git
+[submodule "roles/ansible-role-wordpress"]
+	path = roles/ansible-role-wordpress
+	url = https://github.com/HauptJ/ansible-role-wordpress.git
+[submodule "roles/ansible-role-selinux"]
+	path = roles/ansible-role-selinux
+	url = https://github.com/HauptJ/ansible-role-selinux.git
+[submodule "roles/ansible-role-fail2ban-firewalld"]
+	path = roles/ansible-role-fail2ban-firewalld
+	url = https://github.com/HauptJ/ansible-role-fail2ban-firewalld.git
