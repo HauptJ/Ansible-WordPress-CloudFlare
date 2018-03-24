@@ -11,6 +11,7 @@
     - ansible-role-repo-remi
     #- ansible-role-selinux
     - ansible-role-fail2ban-firewalld
+    - ansible-role-redis
     - ansible-role-openresty
     - ansible-role-mariadb
     - ansible-role-php-fpm
