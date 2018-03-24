@@ -1,0 +1,15 @@
+---
+# tasks to restart the server
+
+- name: Restart server
+  command: /sbin/shutdown -r +1
+  async: 0
+  poll: 0
+  ignore_errors: true
+
+- name: Waiting 65 seconds
+  pause: seconds=65
+
+- name: Wait for {{ inventory_hostname }} to finish rebooting
+  local_action: wait_for host="{{ inventory_hostname }}" state=started port=22 timeout=300
+  become: no
