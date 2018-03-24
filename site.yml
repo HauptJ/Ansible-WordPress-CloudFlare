@@ -1,7 +1,7 @@
 ---
 - name: Install Fail2ban, WordPress, Redis, MariaDB, Nginx, and PHP-FPM
   hosts: all
-  strategy: debug
+  #strategy: debug
   #remote_user: centos
   become: yes
 

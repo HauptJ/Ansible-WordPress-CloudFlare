@@ -69,6 +69,8 @@ f2b_whitelist_ip: 8.8.8.8
 f2b_destemail: bob@example.com
 f2b_sender: alice@srv.example.com
 
+firewalld_installed: true
+
 ##### WordPress #####
 
 # These are the WordPress database settings

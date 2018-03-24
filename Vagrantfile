@@ -94,6 +94,7 @@ Vagrant.configure("2") do |config|
   	end
 
     centos.vm.provision "shell", inline: <<-SHELL
+    rm -r -f CloudPress2/
     git clone --recursive https://github.com/HauptJ/CloudPress2.git
     pushd CloudPress2/
     git submodule update --recursive --remote
