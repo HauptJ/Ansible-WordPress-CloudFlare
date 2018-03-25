@@ -47,6 +47,7 @@ ipv4_addr: 54.39.111.111
 ipv6_addr: 2607:5300:201:2100::5:1111/128
 ipv6_gate: 2607:5300:201:2100::1
 ipv6_setup: true
+ipv6_ci_test: false
 
 ##### CloudFlare #####
 
