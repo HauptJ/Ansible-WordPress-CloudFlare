@@ -123,6 +123,9 @@ Vagrant.configure("2") do |config|
     pushd roles/ansible-role-ipv6/
     git checkout pipeline
     popd
+    pushd roles/ansible-role-updates/
+    git checkout pipeline
+    popd
     ansible-playbook site.yml
     popd
     chown -R vagrant:vagrant CloudPress2/

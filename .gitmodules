@@ -31,3 +31,6 @@
 [submodule "roles/ansible-role-ipv6"]
 	path = roles/ansible-role-ipv6
 	url = https://github.com/HauptJ/ansible-role-ipv6.git
+[submodule "roles/ansible-role-updates"]
+	path = roles/ansible-role-updates
+	url = https://github.com/HauptJ/ansible-role-updates.git
