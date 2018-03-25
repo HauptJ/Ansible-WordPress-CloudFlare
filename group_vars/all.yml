@@ -36,6 +36,9 @@ nginx_port: 443
 server_hostname: example.com
 admin_email: bob@example.com
 
+##### PHP #####
+php_ci_test: false
+
 # htpasswd settings
 htpasswd_user: test
 htpasswd_pass: testpass
