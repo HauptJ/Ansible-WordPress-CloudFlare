@@ -99,33 +99,6 @@ Vagrant.configure("2") do |config|
     pushd CloudPress2/
     git checkout pipeline
     git submodule update --recursive --remote
-    pushd roles/ansible-role-openresty/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-mariadb/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-php-fpm/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-wordpress/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-redis/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-selinux/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-fail2ban-firewalld/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-ipv6/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-updates/
-    git checkout pipeline
-    popd
     ansible-playbook site.yml
     popd
     chown -R vagrant:vagrant CloudPress2/
