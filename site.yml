@@ -16,4 +16,3 @@
     - ansible-role-mariadb
     - ansible-role-php-fpm
     - ansible-role-wordpress
-    - ansible-role-updates
