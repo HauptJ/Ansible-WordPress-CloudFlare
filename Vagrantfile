@@ -93,12 +93,30 @@ Vagrant.configure("2") do |config|
   		hv.memory = $vmem
   	end
 
+    # NOTE: The provided inline shell provisioner will only work with my CentOS 7.4 Vagrant box.
+    # https://github.com/HauptJ/Vagrant-CentOS-7-HyperV-Gen-2
+    # If you wish to use another Vagrant box, you will have to uncomment the
+    # commented out commands below.
+
     centos.vm.provision "shell", inline: <<-SHELL
+    # Update all existing packages
+    #yum update -y
+    # Enable EPEL REPO
+    #yum -y --enablerepo=extras install epel-release
+    # Install requirements for Ansible provisioning
+    #yum install -y \
+    #ansible \
+    #git
+    # Create local group for local Ansible provisioning
+    #echo '[local]' >> /etc/ansible/hosts
+    #echo 'localhost              ansible_connection=local              ansible_user=root' >> /etc/ansible/hosts
     rm -r -f CloudPress2/
     git clone --recursive https://github.com/HauptJ/CloudPress2.git
     pushd CloudPress2/
+    # Pull latest commit from development / "pipeline" branch
     git checkout pipeline
-    git submodule update --recursive --remote
+    git submodule foreach git checkout pipeline
+    # Run Ansible Playbook
     ansible-playbook site.yml
     popd
     chown -R vagrant:vagrant CloudPress2/
