@@ -14,14 +14,14 @@
 
 
   roles:
-    - ansible-role-updates
     - ansible-role-repo-epel
     - ansible-role-repo-remi
+    - ansible-role-updates
     #- ansible-role-selinux
     - ansible-role-fail2ban-firewalld
     - ansible-role-redis
     - ansible-role-openresty
-    #- ansible-role-mariadb
-    - ansible-role-mariadb-1
+    - ansible-role-mariadb
+    #- ansible-role-mariadb-1 # Broken???
     - ansible-role-php-fpm
     - ansible-role-wordpress

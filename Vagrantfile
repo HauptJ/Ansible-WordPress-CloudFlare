@@ -91,6 +91,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "centos" do |centos|
     centos.vm.box = $centos_box
+    centos.vm.box_version = "22.3.18"
 
   	centos.vm.provider "hyperv" do |hv|
   		hv.vmname = $centos_vmname
@@ -120,11 +121,12 @@ Vagrant.configure("2") do |config|
     rm -r -f CloudPress2/
     git clone --recursive https://github.com/HauptJ/CloudPress2.git
     pushd CloudPress2/
-    git submodule init
-    git submodule update
     # Pull latest commit from development / "pipeline" branch
     git checkout pipeline
+    git submodule init
+    git submodule update
     git submodule foreach git checkout pipeline
+    git submodule foreach git pull
     # Run Ansible Playbook
     ansible-playbook site.yml
     popd
