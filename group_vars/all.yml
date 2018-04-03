@@ -3,7 +3,7 @@
 # @Email:  josh@hauptj.com
 # @Filename: all.yml
 # @Last modified by:   HauptJ
-# @Last modified time: 02-Apr-2018
+# @Last modified time: 03-Apr-2018
 
 ---
 # Variables listed here are applicable to all host groups
@@ -20,11 +20,13 @@ sel_disable: true
 
 ##### MariaDB #####
 
-# MySQL settings
+# MariaDB settings
 # If the server / cloud service provider provides a firewall to limit access to certain IP's
 # you can safetly open the MariaDB port. If not, I would advise keeping it closed.
 open_mariadb_port: false
 mariadb_port: 3306
+mariadb_set_root_password: true
+mariadb_root_password: password
 
 ##### Redis #####
 
