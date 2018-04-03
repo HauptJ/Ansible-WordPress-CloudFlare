@@ -1,3 +1,10 @@
+# @Author: Haupt Joshua <HauptJ>
+# @Date:   26-Mar-2018
+# @Email:  josh@hauptj.com
+# @Filename: Vagrantfile
+# @Last modified by:   HauptJ
+# @Last modified time: 02-Apr-2018
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 # NOTE: Variable overrides are in ./config.rb
@@ -95,10 +102,8 @@ Vagrant.configure("2") do |config|
 
     # NOTE: The provided inline shell provisioner will only work with my CentOS 7.4 Vagrant box.
     # https://github.com/HauptJ/Vagrant-CentOS-7-HyperV-Gen-2
-    # If you wish to use another Vagrant box, you will have to uncomment the
+    # If you wish to use another Vagrant box, you will have to add the
     # commented out commands below.
-
-    centos.vm.provision "shell", inline: <<-SHELL
     # Update all existing packages
     #yum update -y
     # Enable EPEL REPO
@@ -110,6 +115,8 @@ Vagrant.configure("2") do |config|
     # Create local group for local Ansible provisioning
     #echo '[local]' >> /etc/ansible/hosts
     #echo 'localhost              ansible_connection=local              ansible_user=root' >> /etc/ansible/hosts
+
+    centos.vm.provision "shell", inline: <<-SHELL
     rm -r -f CloudPress2/
     git clone --recursive https://github.com/HauptJ/CloudPress2.git
     pushd CloudPress2/

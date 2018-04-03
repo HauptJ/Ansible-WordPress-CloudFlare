@@ -1,3 +1,10 @@
+# @Author: Haupt Joshua <HauptJ>
+# @Date:   02-Apr-2018
+# @Email:  josh@hauptj.com
+# @Filename: .gitmodules
+# @Last modified by:   HauptJ
+# @Last modified time: 02-Apr-2018
+
 [submodule "ansible-role-openresty"]
 	path = ansible-role-openresty
 	url = https://github.com/HauptJ/ansible-role-openresty.git
@@ -45,4 +52,8 @@
 [submodule "roles/ansible-role-updates"]
 	path = roles/ansible-role-updates
 	url = https://github.com/HauptJ/ansible-role-updates.git
+	branch = pipeline
+[submodule "roles/ansible-role-mariadb-1"]
+	path = roles/ansible-role-mariadb-1
+	url = https://github.com/HauptJ/ansible-role-mariadb-1.git
 	branch = pipeline

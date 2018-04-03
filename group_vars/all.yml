@@ -1,3 +1,10 @@
+# @Author: Haupt Joshua <HauptJ>
+# @Date:   26-Mar-2018
+# @Email:  josh@hauptj.com
+# @Filename: all.yml
+# @Last modified by:   HauptJ
+# @Last modified time: 02-Apr-2018
+
 ---
 # Variables listed here are applicable to all host groups
 
@@ -76,6 +83,11 @@ f2b_sender: alice@srv.example.com
 firewalld_installed: true
 
 ##### WordPress #####
+
+# Create a new database for WordPress or use an existing one
+# true: create new database
+# false: upload existing database
+mariadb_wp_db: true
 
 # These are the WordPress database settings
 wp_new_db: true
