@@ -3,7 +3,7 @@
 # @Email:  josh@hauptj.com
 # @Filename: site.yml
 # @Last modified by:   HauptJ
-# @Last modified time: 02-Apr-2018
+# @Last modified time: 03-Apr-2018
 
 ---
 - name: Install Fail2ban, WordPress, Redis, MariaDB, Nginx, and PHP-FPM
@@ -14,6 +14,7 @@
 
 
   roles:
+    - ansible-role-updates
     - ansible-role-repo-epel
     - ansible-role-repo-remi
     #- ansible-role-selinux

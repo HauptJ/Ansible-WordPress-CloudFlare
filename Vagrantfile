@@ -3,7 +3,7 @@
 # @Email:  josh@hauptj.com
 # @Filename: Vagrantfile
 # @Last modified by:   HauptJ
-# @Last modified time: 02-Apr-2018
+# @Last modified time: 03-Apr-2018
 
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
@@ -120,6 +120,8 @@ Vagrant.configure("2") do |config|
     rm -r -f CloudPress2/
     git clone --recursive https://github.com/HauptJ/CloudPress2.git
     pushd CloudPress2/
+    git submodule init
+    git submodule update
     # Pull latest commit from development / "pipeline" branch
     git checkout pipeline
     git submodule foreach git checkout pipeline
