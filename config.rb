@@ -4,6 +4,7 @@
 # commented out commands. See: Vagrantfile
 
 $centos_box = "hauptj/CentOS74"
+$centos_box_ver = "8.4.2018"
 $centos_vmname = "CloudPress2"
 
 # NOTE: By default, at least 2 vcpus are required to compile OpenResty from source.

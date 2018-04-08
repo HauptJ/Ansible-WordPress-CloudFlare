@@ -26,14 +26,14 @@ sel_disable: true
 # Create a new database for WordPress or use an existing one
 # true: create new database
 # false: upload existing database
-mariadb_new_db: true
+mariadb_new_db: false
 mariadb_db_name: testWP
 mariadb_db_user: testWPuser
 mariadb_db_user_password: 1337TestPass
 
 # filename of existing database
 # NOTE: if mariadb_new_db == false
-mariadb_db_file_name: test.sql
+mariadb_db_file_name: testWP.sql
 
 # If the server / cloud service provider provides a firewall to limit access to certain IP's
 # you can safetly open the MariaDB port. If not, I would advise keeping it closed.

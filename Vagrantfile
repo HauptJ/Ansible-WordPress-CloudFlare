@@ -91,7 +91,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "centos" do |centos|
     centos.vm.box = $centos_box
-    centos.vm.box_version = "22.3.18"
+    centos.vm.box_version = $centos_box_ver
 
   	centos.vm.provider "hyperv" do |hv|
   		hv.vmname = $centos_vmname
