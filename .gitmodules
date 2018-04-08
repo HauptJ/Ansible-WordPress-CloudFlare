@@ -53,3 +53,6 @@
 	path = roles/ansible-role-updates
 	url = https://github.com/HauptJ/ansible-role-updates.git
 	branch = pipeline
+[submodule "roles/ansible-role-cloudflare"]
+	path = roles/ansible-role-cloudflare
+	url = https://github.com/HauptJ/ansible-role-cloudflare.git

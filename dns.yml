@@ -1,0 +1,13 @@
+# @Author: Haupt Joshua
+# @Date:   08-Apr-2018
+# @Email:  josh@hauptj.com
+# @Filename: dns.yml
+# @Last modified by:   Haupt Joshua
+# @Last modified time: 08-Apr-2018
+
+---
+- name: Configures CloudFlare DNS for server
+  hosts: localhost
+
+  roles:
+    - cloudflare
