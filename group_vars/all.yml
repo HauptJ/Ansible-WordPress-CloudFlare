@@ -15,7 +15,12 @@ auto_updates: true
 ##### SE Linux #####
 
 # Security Enhanced Linux Disable or Enable
+# true == disabled
+# false == enabled
 sel_disable: true
+
+# CI test, this should only be set to true for CI testing
+sel_ci_test: false
 
 
 ##### MariaDB #####
