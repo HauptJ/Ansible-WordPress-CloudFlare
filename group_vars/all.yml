@@ -57,6 +57,10 @@ rd_optimize: false
 
 ##### NGINX / OpenResty #####
 
+# htpasswd settings
+htpasswd_user: test
+htpasswd_pass: testpass
+
 # This is used for the nginx server configuration, but access to the
 # WordPress site is not restricted by a named host.
 nginx_ipv6:  2607:5300:201:2100::5:1111
@@ -69,6 +73,11 @@ admin_email: bob@example.com
 resty_default_web_dir: /usr/local/openresty/nginx/html/default
 # Sites directory
 resty_sites_dir: /usr/local/openresty/nginx/sites
+
+# Config directory
+resty_conf_dir: /usr/local/openresty/nginx/conf
+# Log directory
+resty_log_dir: /var/log/openresty
 
 openresty_version: 1.11.2.5
 openresty_download_url: https://openresty.org/download/openresty-
@@ -109,7 +118,12 @@ resty_install_wp: true
 # use self signed ssl cert
 resty_SSL_self_signed: true
 
-##### NGINX Settings #####
+# SSL key directory
+resty_SSL_key_dir: /etc/ssl/private
+# SSL cert directory
+resty_SSL_cert_dir: /etc/ssl/certs
+
+# OpenResty web service user and group
 resty_web_user: nginx
 
 ##### These modules are depreciated #####
@@ -117,15 +131,13 @@ with_sha1: "/usr/include/openssl"
 with_md5: "/usr/include/openssl"
 
 
-
 ##### PHP #####
+
+# PHP Socket
+php_sock: /var/run/wordpress.sock
 
 # Should only be set to true for testing
 php_ci_test: false
-
-# htpasswd settings
-htpasswd_user: test
-htpasswd_pass: testpass
 
 
 ##### IPv6 Network #####
