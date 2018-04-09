@@ -26,7 +26,7 @@ sel_disable: true
 # Create a new database for WordPress or use an existing one
 # true: create new database
 # false: upload existing database
-mariadb_new_db: false
+mariadb_new_db: true
 mariadb_db_name: testWP
 mariadb_db_user: testWPuser
 mariadb_db_user_password: 1337TestPass
