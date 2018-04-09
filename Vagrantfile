@@ -127,6 +127,9 @@ Vagrant.configure("2") do |config|
     git submodule update
     git submodule foreach git checkout pipeline
     git submodule foreach git pull
+    # Install Dependencies from Ansible Galaxy
+    ansible-galaxy install geerlingguy.repo-epel
+    ansible-galaxy install geerlingguy.repo-remi
     # Run Ansible Playbook
     ansible-playbook site.yml
     popd
