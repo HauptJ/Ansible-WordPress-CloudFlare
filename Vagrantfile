@@ -130,10 +130,10 @@ Vagrant.configure("2") do |config|
     # Install Dependencies from Ansible Galaxy
     ansible-galaxy install geerlingguy.repo-epel
     ansible-galaxy install geerlingguy.repo-remi
-    ansible-galaxy install hauptj.ansible-role-mariadb
-    ansible-galaxy install hauptj.ansible-role-redis
-    ansible-galaxy install hauptj.ansible-role-openresty
-    ansible-galaxy install hauptj.ansible-role-php-fpm
+    ansible-galaxy install HauptJ.mariadb
+    ansible-galaxy install HauptJ.redis
+    ansible-galaxy install HauptJ.openresty
+    ansible-galaxy install HauptJ.php-fpm
     # Run Ansible Playbook
     ansible-playbook site.yml
     popd
