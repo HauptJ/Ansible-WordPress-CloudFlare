@@ -197,6 +197,9 @@ auto_up_disable: false
 # minor = Minor updates are enabled, development, and major updates are disabled
 core_update_level: true
 
+# CI test, should only be set to true for CI testing
+wp_ci_test: false
+
 
 ##### CloudFlare #####
 
