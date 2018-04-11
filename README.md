@@ -6,7 +6,7 @@ Installs and configures Firewalld, Fail2ban, OpenResty Nginx, MariaDB, PHP 7.1, 
 
 Configuration file: ```group_vars/all.yml```. Use ```all.example``` as a documented example.
 
-The ```ansible-role-ipv6``` role is only necessary if your host supports IPv6 but does not provide an image that supports it out of the box without custom configuration. To use the role you need to specify the ipv6 address and gateway in ```all.yml```. DigitalOcean supports IPv6 out of the box, while OVH's Cloud and OpenStack require it to be enabled manually.
+The ```ansible-role-ipv6``` role is only necessary if your host supports IPv6 but does not provide an image that supports it out of the box without custom configuration.  To use this role you need to specify the ipv6 address and gateway as a ```host_vars``` variable. DigitalOcean supports IPv6 out of the box, while OVH's Cloud and OpenStack require it to be enabled manually.
 
 The ```ansible-role-cloudflare``` role is called from dns.yml and it can be used to automatically configure DNS records for an ***existing zone*** using CloudFlare's API.
 
