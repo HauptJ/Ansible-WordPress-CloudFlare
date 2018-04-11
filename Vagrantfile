@@ -12,7 +12,7 @@ require "yaml"
 require "fileutils"
 
 # Use a variable file for overrides:
-CONFIG = File.expand_path("config.rb")
+CONFIG = File.expand_path("configcp.rb")
 if File.exist?(CONFIG)
   require CONFIG
 end
