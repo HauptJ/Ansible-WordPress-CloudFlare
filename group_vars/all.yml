@@ -12,6 +12,10 @@
 # Enable or disable automatic updates
 auto_updates: true
 
+# CI testing, this should only be set to true for testing
+updates_ci_test: false
+
+
 ##### SE Linux #####
 
 # Security Enhanced Linux Disable or Enable
@@ -47,6 +51,9 @@ mariadb_port: 3306
 mariadb_set_root_password: true
 mariadb_root_password: password
 
+# CI test, this should only be set to true for testing
+mariadb_ci_test: false
+
 ##### Redis #####
 
 # Redis Cache setting
@@ -58,6 +65,9 @@ rd_mem_pol: allkeys-lru
 # Optimize system for Redis
 # NOTE: BROKEN
 rd_optimize: false
+
+# CI testing, this should only be set to true for testing
+rd_ci_test: false
 
 
 ##### NGINX / OpenResty #####
@@ -135,6 +145,9 @@ resty_web_user: nginx
 with_sha1: "/usr/include/openssl"
 with_md5: "/usr/include/openssl"
 
+# CI test, should only be set to true for testing
+resty_ci_test: false
+
 
 ##### PHP #####
 
@@ -182,6 +195,9 @@ f2b_maxretry: 4
 f2b_whitelist_ip: 8.8.8.8
 f2b_destemail: bob@example.com
 f2b_sender: alice@srv.example.com
+
+# CI test, this should only be set to true for testing
+f2b_ci_test: false
 
 
 ##### WordPress #####
