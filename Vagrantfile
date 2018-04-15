@@ -135,7 +135,7 @@ Vagrant.configure("2") do |config|
     ansible-galaxy install HauptJ.openresty
     ansible-galaxy install HauptJ.php-fpm
     # Run Ansible Playbook
-    ansible-playbook site.yml
+    ansible-playbook --vault-password-file vault_test.txt site.yml
     popd
     chown -R vagrant:vagrant Ansible-WordPress-CloudFlare/
     SHELL
