@@ -36,20 +36,20 @@ sel_ci_test: false
 # true: create new database
 # false: upload existing database
 mariadb_new_db: true
-mariadb_db_name: testWP
-mariadb_db_user: testWPuser
-mariadb_db_user_password: 1337TestPass
+mariadb_db_name: "{{ vault_mariadb_db_name }}"
+mariadb_db_user: "{{ vault_mariadb_db_user }}"
+mariadb_db_user_password: "{{ vault_mariadb_db_user_password }}"
 
 # filename of existing database
 # NOTE: if mariadb_new_db == false
-mariadb_db_file_name: testWP.sql
+mariadb_db_file_name: "{{ vault_mariadb_db_file_name }}"
 
 # If the server / cloud service provider provides a firewall to limit access to certain IP's
 # you can safetly open the MariaDB port. If not, I would advise keeping it closed.
 mariadb_open_port: false
 mariadb_port: 3306
 mariadb_set_root_password: true
-mariadb_root_password: password
+mariadb_root_password: "{{ vault_mariadb_root_password }}"
 
 # CI test, this should only be set to true for testing
 mariadb_ci_test: false
@@ -73,8 +73,8 @@ rd_ci_test: false
 ##### NGINX / OpenResty #####
 
 # htpasswd settings
-htpasswd_user: test
-htpasswd_pass: testpass
+htpasswd_user: "{{ vault_htpasswd_user }}"
+htpasswd_pass: "{{ vault_htpasswd_pass }}"
 
 # This is used for the nginx server configuration, but access to the
 # WordPress site is not restricted by a named host.
@@ -184,15 +184,15 @@ ipv6_ci_test: false
 firewalld_installed: true
 
 # CloudFlare account Email
-cf_email: cf@example.com
+cf_email: "{{ vault_cf_email }}"
 # CloudFlare accoutn API key
-cf_key: your_api_key
+cf_key: "{{ vault_cf_key }}"
 
 # times are in seconds
 f2b_bantime: 864000
 f2b_findtime: 10800
 f2b_maxretry: 4
-f2b_whitelist_ip: 8.8.8.8
+f2b_whitelist_ip: "{{ vault_f2b_whitelist_ip }}"
 f2b_destemail: bob@example.com
 f2b_sender: alice@srv.example.com
 
@@ -203,7 +203,7 @@ f2b_ci_test: false
 ##### WordPress #####
 
 # WordPress Salt
-wp_cache_salt: salty_salty
+wp_cache_salt: "{{ vault_wp_cache_salt }}"
 # Disable All Updates
 # By default automatic updates are enabled, set this value to true to disable all automatic updates
 auto_up_disable: false

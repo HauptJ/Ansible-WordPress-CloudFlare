@@ -1,0 +1,15 @@
+vault_mariadb_db_name: DBName
+vault_mariadb_db_user: DBUser
+vault_mariadb_db_user_password: DBUserPass
+vault_mariadb_db_file_name: DBFileName.sql
+vault_mariadb_db_root_password: DBRootPass
+
+vault_httpasswd_user: HTPASSWDUser
+vault_htpasswd_pass: HTPASSWDPass
+
+vault_cf_email: cfemail@example.com
+vault_cf_key: CFKey
+
+vault_f2b_whitelist_ip: 8.8.8.8
+
+vault_wp_cache_salt: vaultysalty

@@ -12,7 +12,7 @@ require "yaml"
 require "fileutils"
 
 # Use a variable file for overrides:
-CONFIG = File.expand_path("configcp.rb")
+CONFIG = File.expand_path("config.rb")
 if File.exist?(CONFIG)
   require CONFIG
 end
@@ -118,9 +118,9 @@ Vagrant.configure("2") do |config|
     #echo 'localhost              ansible_connection=local              ansible_user=root' >> /etc/ansible/hosts
 
     centos.vm.provision "shell", inline: <<-SHELL
-    rm -r -f CloudPress2/
-    git clone --recursive https://github.com/HauptJ/CloudPress2.git
-    pushd CloudPress2/
+    rm -r -f Ansible-WordPress-CloudFlare/
+    git clone --recursive https://github.com/HauptJ/Ansible-WordPress-CloudFlare.git
+    pushd Ansible-WordPress-CloudFlare/
     # Pull latest commit from development / "pipeline" branch
     git checkout pipeline
     git submodule init
@@ -137,7 +137,7 @@ Vagrant.configure("2") do |config|
     # Run Ansible Playbook
     ansible-playbook site.yml
     popd
-    chown -R vagrant:vagrant CloudPress2/
+    chown -R vagrant:vagrant Ansible-WordPress-CloudFlare/
     SHELL
 
   end
