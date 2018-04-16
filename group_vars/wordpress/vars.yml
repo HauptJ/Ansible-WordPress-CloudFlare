@@ -78,10 +78,10 @@ htpasswd_pass: "{{ vault_htpasswd_pass }}"
 
 # This is used for the nginx server configuration, but access to the
 # WordPress site is not restricted by a named host.
-nginx_ipv6:  2607:5300:201:2100::5:1111
+nginx_ipv6:  2607:5300:201:2100::5:1111 # Now only applies to proof of concept cloudflare role
 nginx_port: 443
-server_hostname: example.com
-admin_email: bob@example.com
+server_hostname: example.com # TODO: Check if safe to remove
+admin_email: bob@example.com # TODO: Check if safe to remove
 
 # Web Directories
 # Default directory
