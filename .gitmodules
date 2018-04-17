@@ -1,33 +1,58 @@
+# @Author: Haupt Joshua <HauptJ>
+# @Date:   02-Apr-2018
+# @Email:  josh@hauptj.com
+# @Filename: .gitmodules
+# @Last modified by:   HauptJ
+# @Last modified time: 02-Apr-2018
+
 [submodule "ansible-role-openresty"]
 	path = ansible-role-openresty
 	url = https://github.com/HauptJ/ansible-role-openresty.git
+	branch = pipeline
 [submodule "roles/ansible-role-openresty"]
 	path = roles/ansible-role-openresty
 	url = https://github.com/HauptJ/ansible-role-openresty.git
+	branch = pipeline
 [submodule "roles/ansible-role-redis"]
 	path = roles/ansible-role-redis
 	url = https://github.com/HauptJ/ansible-role-redis.git
+	branch = pipeline
 [submodule "roles/ansible-role-php-fpm"]
 	path = roles/ansible-role-php-fpm
 	url = https://github.com/HauptJ/ansible-role-php-fpm.git
+	branch = pipeline
 [submodule "roles/ansible-role-mariadb"]
 	path = roles/ansible-role-mariadb
 	url = https://github.com/HauptJ/ansible-role-mariadb.git
+	branch = pipeline
 [submodule "roles/ansible-role-repo-epel"]
 	path = roles/ansible-role-repo-epel
 	url = https://github.com/HauptJ/ansible-role-repo-epel.git
+	branch = pipeline
 [submodule "roles/ansible-role-repo-remi"]
 	path = roles/ansible-role-repo-remi
 	url = https://github.com/HauptJ/ansible-role-repo-remi.git
+	branch = pipeline
 [submodule "roles/ansible-role-wordpress"]
 	path = roles/ansible-role-wordpress
 	url = https://github.com/HauptJ/ansible-role-wordpress.git
+	branch = pipeline
 [submodule "roles/ansible-role-selinux"]
 	path = roles/ansible-role-selinux
 	url = https://github.com/HauptJ/ansible-role-selinux.git
+	branch = pipeline
 [submodule "roles/ansible-role-fail2ban-firewalld"]
 	path = roles/ansible-role-fail2ban-firewalld
 	url = https://github.com/HauptJ/ansible-role-fail2ban-firewalld.git
+	branch = pipeline
 [submodule "roles/ansible-role-ipv6"]
 	path = roles/ansible-role-ipv6
 	url = https://github.com/HauptJ/ansible-role-ipv6.git
+	branch = pipeline
+[submodule "roles/ansible-role-updates"]
+	path = roles/ansible-role-updates
+	url = https://github.com/HauptJ/ansible-role-updates.git
+	branch = pipeline
+[submodule "roles/ansible-role-cloudflare"]
+	path = roles/ansible-role-cloudflare
+	url = https://github.com/HauptJ/ansible-role-cloudflare.git

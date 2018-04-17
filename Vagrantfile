@@ -1,3 +1,10 @@
+# @Author: Haupt Joshua <HauptJ>
+# @Date:   26-Mar-2018
+# @Email:  josh@hauptj.com
+# @Filename: Vagrantfile
+# @Last modified by:   HauptJ
+# @Last modified time: 03-Apr-2018
+
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 # NOTE: Variable overrides are in ./config.rb
@@ -84,6 +91,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "centos" do |centos|
     centos.vm.box = $centos_box
+    centos.vm.box_version = $centos_box_ver
 
   	centos.vm.provider "hyperv" do |hv|
   		hv.vmname = $centos_vmname
@@ -93,38 +101,43 @@ Vagrant.configure("2") do |config|
   		hv.memory = $vmem
   	end
 
+    # NOTE: The provided inline shell provisioner will only work with my CentOS 7.4 Vagrant box.
+    # https://github.com/HauptJ/Vagrant-CentOS-7-HyperV-Gen-2
+    # If you wish to use another Vagrant box, you will have to add the
+    # commented out commands below.
+    # Update all existing packages
+    #yum update -y
+    # Enable EPEL REPO
+    #yum -y --enablerepo=extras install epel-release
+    # Install requirements for Ansible provisioning
+    #yum install -y \
+    #ansible \
+    #git
+    # Create local group for local Ansible provisioning
+    #echo '[local]' >> /etc/ansible/hosts
+    #echo 'localhost              ansible_connection=local              ansible_user=root' >> /etc/ansible/hosts
+
     centos.vm.provision "shell", inline: <<-SHELL
-    rm -r -f CloudPress2/
-    git clone --recursive https://github.com/HauptJ/CloudPress2.git
-    pushd CloudPress2/
-    git submodule update --recursive --remote
-    pushd roles/ansible-role-openresty/
+    rm -r -f Ansible-WordPress-CloudFlare/
+    git clone --recursive https://github.com/HauptJ/Ansible-WordPress-CloudFlare.git
+    pushd Ansible-WordPress-CloudFlare/
+    # Pull latest commit from development / "pipeline" branch
     git checkout pipeline
+    git submodule init
+    git submodule update
+    git submodule foreach git checkout pipeline
+    git submodule foreach git pull
+    # Install Dependencies from Ansible Galaxy
+    ansible-galaxy install geerlingguy.repo-epel
+    ansible-galaxy install geerlingguy.repo-remi
+    ansible-galaxy install HauptJ.mariadb
+    ansible-galaxy install HauptJ.redis
+    ansible-galaxy install HauptJ.openresty
+    ansible-galaxy install HauptJ.php-fpm
+    # Run Ansible Playbook
+    ansible-playbook --vault-password-file vault_test.txt site.yml
     popd
-    pushd roles/ansible-role-mariadb/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-php-fpm/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-wordpress/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-redis/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-selinux/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-fail2ban-firewalld/
-    git checkout pipeline
-    popd
-    pushd roles/ansible-role-ipv6/
-    git checkout pipeline
-    popd
-    ansible-playbook site.yml
-    popd
-    chown -R vagrant:vagrant CloudPress2/
+    chown -R vagrant:vagrant Ansible-WordPress-CloudFlare/
     SHELL
 
   end
