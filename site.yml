@@ -6,8 +6,8 @@
 # @Last modified time: 03-Apr-2018
 
 ---
-- name: Install Fail2ban, WordPress, Redis, MariaDB, Nginx, and PHP-FPM
-  hosts: wordpress
+- name: Install Fail2ban, and OpenResty Nginx
+  hosts: site
   #strategy: debug
   #remote_user: centos
   become: yes
@@ -19,8 +19,4 @@
     - ansible-role-updates
     #- ansible-role-selinux # cannot test in Vagrant or Docker due to required reboot
     - ansible-role-fail2ban-firewalld
-    - ansible-role-redis
     - ansible-role-openresty
-    - ansible-role-mariadb
-    - ansible-role-php-fpm
-    - ansible-role-wordpress

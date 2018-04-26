@@ -55,3 +55,7 @@ Build Status
 
 **ansible-role-selinux**
 [![Build Status](https://travis-ci.org/HauptJ/ansible-role-selinux.svg?branch=master)](https://travis-ci.org/HauptJ/ansible-role-selinux)
+
+## References
+- [redis_cache with conditional purging](https://easyengine.io/wordpress-nginx/tutorials/single-site/redis_cache-with-conditional-purging/)
+- [LEMP: CentOS 7, Nginx, PHP7, and Redis for WordPress](https://www.justinsilver.com/technology/linux/lemp-centos-7-nginx-php7-redis-wordpress/)

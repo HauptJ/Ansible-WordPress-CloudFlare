@@ -80,8 +80,8 @@ htpasswd_pass: "{{ vault_htpasswd_pass }}"
 # WordPress site is not restricted by a named host.
 nginx_ipv6:  2607:5300:201:2100::5:1111 # Now only applies to proof of concept cloudflare role
 nginx_port: 443
-server_hostname: example.com # TODO: Check if safe to remove
-admin_email: bob@example.com # TODO: Check if safe to remove
+server_hostname: "{{ vault_server_hostname }}" # REQUIRED for self-signed SSL certificates in openresty role
+admin_email: "{{ vault_admin_email }}" # TODO: Check if safe to remove
 
 # Web Directories
 # Default directory
@@ -127,11 +127,16 @@ resty_install_from_source: true
 ##### Compile Threads #####
 resty_compile_threads: 2
 
-##### Display default web server page for testing #####
+### TODO: Refactor options
+# Display default web server settings for hosting static files
 resty_default_server: false
+# Upload static files in /files directory
+resty_static_files: false
+# Configure OpenResty for WordPress w/ Redis
 resty_install_wp: true
 # use self signed ssl cert
 resty_SSL_self_signed: true
+###
 
 # SSL key directory
 resty_SSL_key_dir: /etc/ssl/private
@@ -193,8 +198,8 @@ f2b_bantime: 864000
 f2b_findtime: 10800
 f2b_maxretry: 4
 f2b_whitelist_ip: "{{ vault_f2b_whitelist_ip }}"
-f2b_destemail: bob@example.com
-f2b_sender: alice@srv.example.com
+f2b_destemail: "{{ vault_f2b_destemail }}"
+f2b_sender: "{{ vault_f2b_sender }}"
 
 # CI test, this should only be set to true for testing
 f2b_ci_test: false
