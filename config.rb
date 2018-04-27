@@ -4,9 +4,9 @@
 # commented out commands. See: Vagrantfile
 
 $centos_box = "hauptj/CentOS74"
-$centos_box_ver = "25.4.2018.2"
+$centos_box_ver = "26.4.2018"
 $wordpress_vmname = "wordpress"
-$site_vmname = "site"
+$cv_vmname = "cv"
 $utility_vmname = "utility"
 
 # NOTE: By default, at least 2 vcpus are required to compile OpenResty from source.

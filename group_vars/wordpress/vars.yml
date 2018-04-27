@@ -130,8 +130,8 @@ resty_compile_threads: 2
 ### TODO: Refactor options
 # Display default web server settings for hosting static files
 resty_default_server: false
-# Upload static files in /files directory
-resty_static_files: false
+# Static CV server
+resty_cv_server: false
 # Configure OpenResty for WordPress w/ Redis
 resty_install_wp: true
 # use self signed ssl cert

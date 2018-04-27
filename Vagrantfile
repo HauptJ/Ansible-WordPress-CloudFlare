@@ -89,12 +89,12 @@ Vagrant.configure("2") do |config|
   }
 
 
-  config.vm.define "site" do |site|
-    site.vm.box = $centos_box
-    site.vm.box_version = $centos_box_ver
+  config.vm.define "cv" do |cv|
+    cv.vm.box = $centos_box
+    cv.vm.box_version = $centos_box_ver
 
-  	site.vm.provider "hyperv" do |hv|
-  		hv.vmname = $site_vmname
+  	cv.vm.provider "hyperv" do |hv|
+  		hv.vmname = $cv_vmname
   		# With nested virtualization, at least 2 CPUs are needed.
   		hv.cpus = $vcpus
   		# With nested virtualization, at least 4GB of memory is needed.
@@ -103,7 +103,7 @@ Vagrant.configure("2") do |config|
       hv.differencing_disk = true
   	end
 
-    site.vm.provision "shell", inline: <<-SHELL
+    cv.vm.provision "shell", inline: <<-SHELL
     # Install Dependencies from Ansible Galaxy
     pushd /vagrant
     ansible-galaxy install geerlingguy.repo-epel
@@ -112,7 +112,7 @@ Vagrant.configure("2") do |config|
     # Run Ansible Playbook
     cp vault_test.txt ~/vault_test.txt
     chmod -x ~/vault_test.txt
-    ansible-playbook --vault-password-file ~/vault_test.txt site.yml
+    ansible-playbook cv.yml --vault-password-file ~/vault_test.txt
     popd
     chown -R vagrant:vagrant /vagrant
     SHELL
@@ -146,7 +146,7 @@ Vagrant.configure("2") do |config|
     # Run Ansible Playbook
     cp vault_test.txt ~/vault_test.txt
     chmod -x ~/vault_test.txt
-    ansible-playbook --vault-password-file ~/vault_test.txt wordpress.yml
+    ansible-playbook wordpress.yml --vault-password-file ~/vault_test.txt
     popd
     chown -R vagrant:vagrant /vagrant
     SHELL
