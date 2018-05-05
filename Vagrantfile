@@ -82,12 +82,19 @@ Vagrant.configure("2") do |config|
   #
 
   # Configure SMB Directory Sharing
+  # NOTE:
+  # Export VAGRANT_SMB_USERNAME: $env:VAGRANT_SMB_USERNAME="username"
+  # Export VAGRANT_SMB_PASSWORD: $env:VAGRANT_SMB_PASSWORD="password"
   config.vm.synced_folder '.', '/vagrant', {
     type: 'smb', mount_options: ['vers=3.0'],
     smb_username: ENV['VAGRANT_SMB_USERNAME'],
     smb_password: ENV['VAGRANT_SMB_PASSWORD']
   }
 
+  # NOTE: This is specific for my machine
+  # Change bridge: "LANBridge" to the name of your
+  # External V-Switch
+  config.vm.network "public_network", bridge: "LANBridge"
 
   config.vm.define "cv" do |cv|
     cv.vm.box = $centos_box
@@ -96,9 +103,9 @@ Vagrant.configure("2") do |config|
   	cv.vm.provider "hyperv" do |hv|
   		hv.vmname = $cv_vmname
   		# With nested virtualization, at least 2 CPUs are needed.
-  		hv.cpus = $vcpus
+  		hv.cpus = $cv_vcpus
   		# With nested virtualization, at least 4GB of memory is needed.
-  		hv.memory = $vmem
+  		hv.memory = $cv_vmem
       # Faster cloning and uses less disk space
       hv.differencing_disk = true
   	end
@@ -110,9 +117,9 @@ Vagrant.configure("2") do |config|
     ansible-galaxy install geerlingguy.repo-remi
     ansible-galaxy install HauptJ.openresty
     # Run Ansible Playbook
-    cp vault_test.txt ~/vault_test.txt
-    chmod -x ~/vault_test.txt
-    ansible-playbook cv.yml --vault-password-file ~/vault_test.txt
+    cp deploy.vault ~/deploy.vault
+    chmod -x ~/deploy.vault
+    ansible-playbook cv.yml --vault-password-file ~/deploy.vault
     popd
     chown -R vagrant:vagrant /vagrant
     SHELL
@@ -144,9 +151,9 @@ Vagrant.configure("2") do |config|
     ansible-galaxy install HauptJ.openresty
     ansible-galaxy install HauptJ.php-fpm
     # Run Ansible Playbook
-    cp vault_test.txt ~/vault_test.txt
-    chmod -x ~/vault_test.txt
-    ansible-playbook wordpress.yml --vault-password-file ~/vault_test.txt
+    cp deploy.vault ~/deploy.vault
+    chmod -x ~/deploy.vault
+    ansible-playbook wordpress.yml --vault-password-file ~/deploy.vault
     popd
     chown -R vagrant:vagrant /vagrant
     SHELL
@@ -154,38 +161,38 @@ Vagrant.configure("2") do |config|
   end
 
 
-  config.vm.define "utility" do |utility|
-    utility.vm.box = $centos_box
-    utility.vm.box_version = $centos_box_ver
-
-  	utility.vm.provider "hyperv" do |hv|
-  		hv.vmname = $utility_vmname
-  		# With nested virtualization, at least 2 CPUs are needed.
-  		hv.cpus = $vcpus
-  		# With nested virtualization, at least 4GB of memory is needed.
-  		hv.memory = $vmem
-      # Faster cloning and uses less disk space
-      hv.differencing_disk = true
-  	end
-
-    utility.vm.provision "shell", inline: <<-SHELL
-    # Install Dependencies from Ansible Galaxy
-    pushd /vagrant
-    ansible-galaxy install geerlingguy.repo-epel
-    ansible-galaxy install geerlingguy.repo-remi
-    ansible-galaxy install HauptJ.mariadb
-    ansible-galaxy install HauptJ.redis
-    ansible-galaxy install HauptJ.openresty
-    ansible-galaxy install HauptJ.php-fpm
-    # Run Ansible Playbook
-    cp vault_test.txt ~/vault_test.txt
-    chmod -x ~/vault_test.txt
-    #ansible-playbook --vault-password-file ~/vault_test.txt site.yml
-    popd
-    chown -R vagrant:vagrant /vagrant
-    SHELL
-
-  end
+  #config.vm.define "utility" do |utility|
+  #  utility.vm.box = $centos_box
+  #  utility.vm.box_version = $centos_box_ver
+#
+#  	utility.vm.provider "hyperv" do |hv|
+#  		hv.vmname = $utility_vmname
+#  		# With nested virtualization, at least 2 CPUs are needed.
+#  		hv.cpus = $vcpus
+#  		# With nested virtualization, at least 4GB of memory is needed.
+#  		hv.memory = $vmem
+#      # Faster cloning and uses less disk space
+#      hv.differencing_disk = true
+#  	end
+#
+#    utility.vm.provision "shell", inline: <<-SHELL
+#    # Install Dependencies from Ansible Galaxy
+#    pushd /vagrant
+#    ansible-galaxy install geerlingguy.repo-epel
+#    ansible-galaxy install geerlingguy.repo-remi
+#    ansible-galaxy install HauptJ.mariadb
+#    ansible-galaxy install HauptJ.redis
+#    ansible-galaxy install HauptJ.openresty
+#    ansible-galaxy install HauptJ.php-fpm
+#    # Run Ansible Playbook
+#    cp vault_test.txt ~/vault_test.txt
+#    chmod -x ~/vault_test.txt
+#    #ansible-playbook --vault-password-file ~/vault_test.txt site.yml
+#    popd
+#    chown -R vagrant:vagrant /vagrant
+#    SHELL
+#
+#  end
 
   # View the documentation for the provider you are using for more
   # information on available options.

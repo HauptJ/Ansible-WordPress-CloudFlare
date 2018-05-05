@@ -13,5 +13,7 @@ $utility_vmname = "utility"
 # SEE: group_vars/all.yml.example
 # SEE: roles/ansible-role-openresty/defaults/main.yml
 $vcpus = "4"
+$cv_vcpus = "2"
 
 $vmem  = "4096"
+$cv_vmem = "2048"
