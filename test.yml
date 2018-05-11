@@ -1,0 +1,17 @@
+# @Author: Haupt Joshua <HauptJ>
+# @Date:   26-Mar-2018
+# @Email:  josh@hauptj.com
+# @Filename: site.yml
+# @Last modified by:   Haupt Joshua
+# @Last modified time: 09-May-2018
+
+---
+- name: debugging playbook
+  hosts: all
+  #strategy: debug
+  #remote_user: centos
+  become: yes
+
+
+  roles:
+    - ansible-role-repo-epel
