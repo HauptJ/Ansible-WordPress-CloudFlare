@@ -22,7 +22,7 @@ RUN yum -y install \
   curl
 
 # Install Dependencies from Ansible Galaxy
-RUN ansible-galaxy install \
+RUN cd /root/ && ansible-galaxy install \
   geerlingguy.repo-epel \
   geerlingguy.repo-remi \
   HauptJ.mariadb  \
