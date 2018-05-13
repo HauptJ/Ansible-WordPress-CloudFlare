@@ -9,7 +9,6 @@ services:
   - docker
 
 before_install:
-  - 'bash -n scripts/ansible.sh'
   - 'sudo docker pull ${distribution}:${version}'
   - 'sudo docker build --no-cache --rm --file=Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible .'
 
