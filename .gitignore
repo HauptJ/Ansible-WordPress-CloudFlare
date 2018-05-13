@@ -1,6 +1,7 @@
 *.retry
 *.sql
 *.vault
-vault.yml
+bu.vault.yml
+#vault.yml
 \.vagrant
 /.vagrant
