@@ -22,12 +22,11 @@ RUN yum -y install \
   curl
 
 # Install Dependencies from Ansible Galaxy
-RUN ansible-galaxy install -p /root geerlingguy.repo-epel
-RUN ansible-galaxy install -p /root geerlingguy.repo-remi
-RUN ansible-galaxy install -p /root HauptJ.mariadb
-RUN ansible-galaxy install -p /root HauptJ.redis
-RUN ansible-galaxy install -p /root HauptJ.openresty
-RUN ansible-galaxy install -p /root HauptJ.php-fpm
+# RUN ansible-galaxy install -p /root geerlingguy.repo-remi
+# RUN ansible-galaxy install -p /root HauptJ.mariadb
+# RUN ansible-galaxy install -p /root HauptJ.redis
+# RUN ansible-galaxy install -p /root HauptJ.openresty
+# RUN ansible-galaxy install -p /root HauptJ.php-fpm
 
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
 
