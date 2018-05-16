@@ -29,6 +29,9 @@ A [CloudFlare](https://www.cloudflare.com) account with a domain configured.
 Build Status
 ------------
 
+**wordpress.yml and cv.yml playbooks**
+[![Build Status](https://travis-ci.org/HauptJ/Ansible-WordPress-CloudFlare.svg?branch=master)](https://travis-ci.org/HauptJ/Ansible-WordPress-CloudFlare)
+
 **ansible-role-wordpress**
 [![Build Status](https://travis-ci.org/HauptJ/ansible-role-ipv6.svg?branch=master)](https://travis-ci.org/HauptJ/ansible-role-ipv6)
 
