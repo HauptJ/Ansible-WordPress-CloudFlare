@@ -23,7 +23,7 @@ RUN yum -y install \
 
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
 
-ADD https://raw.githubusercontent.com/HauptJ/Vagrant-CentOS-7-HyperV-Gen-2/master/hosts /etc/ansible/hosts
+COPY hosts /etc/ansible/hosts
 
 VOLUME ["/sys/fs/cgroup"]
 
