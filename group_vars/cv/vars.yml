@@ -27,49 +27,6 @@ sel_disable: true
 sel_ci_test: false
 
 
-##### MariaDB #####
-# MariaDB settings
-
-# These are the WordPress database settings
-
-# Create a new database for WordPress or use an existing one
-# true: create new database
-# false: upload existing database
-mariadb_new_db: true
-mariadb_db_name: "{{ vault_mariadb_db_name }}"
-mariadb_db_user: "{{ vault_mariadb_db_user }}"
-mariadb_db_user_password: "{{ vault_mariadb_db_user_password }}"
-
-# filename of existing database
-# NOTE: if mariadb_new_db == false
-mariadb_db_file_name: "{{ vault_mariadb_db_file_name }}"
-
-# If the server / cloud service provider provides a firewall to limit access to certain IP's
-# you can safetly open the MariaDB port. If not, I would advise keeping it closed.
-mariadb_open_port: false
-mariadb_port: 3306
-mariadb_set_root_password: true
-mariadb_root_password: "{{ vault_mariadb_root_password }}"
-
-# CI test, this should only be set to true for testing
-mariadb_ci_test: false
-
-##### Redis #####
-
-# Redis Cache setting
-# See redis.config
-
-rd_mem: 512mb
-rd_mem_pol: allkeys-lru
-
-# Optimize system for Redis
-# NOTE: BROKEN
-rd_optimize: false
-
-# CI testing, this should only be set to true for testing
-rd_ci_test: false
-
-
 ##### NGINX / OpenResty #####
 
 # htpasswd settings
@@ -131,9 +88,9 @@ resty_compile_threads: 2
 # Display default web server settings for hosting static files
 resty_default_server: false
 # Static CV server
-resty_cv_server: false
+resty_cv_server: true
 # Configure OpenResty for WordPress w/ Redis
-resty_install_wp: true
+resty_install_wp: false
 # use self signed ssl cert
 resty_SSL_self_signed: true
 ###
@@ -152,15 +109,6 @@ with_md5: "/usr/include/openssl"
 
 # CI test, should only be set to true for testing
 resty_ci_test: false
-
-
-##### PHP #####
-
-# PHP Socket
-php_sock: /var/run/wordpress.sock
-
-# Should only be set to true for testing
-php_ci_test: false
 
 
 ##### IPv6 Network #####
@@ -203,30 +151,3 @@ f2b_sender: "{{ vault_f2b_sender }}"
 
 # CI test, this should only be set to true for testing
 f2b_ci_test: false
-
-
-##### WordPress #####
-
-# WordPress Salt
-wp_cache_salt: "{{ vault_wp_cache_salt }}"
-# Disable All Updates
-# By default automatic updates are enabled, set this value to true to disable all automatic updates
-auto_up_disable: false
-#Define Core Update Level
-# true  = Development, minor, and major updates are all enabled
-# false = Development, minor, and major updates are all disabled
-# minor = Minor updates are enabled, development, and major updates are disabled
-core_update_level: true
-
-# CI test, should only be set to true for CI testing
-wp_ci_test: false
-
-
-##### CloudFlare #####
-
-cf_bypass_name: srv.example.com
-cf_new_record: true
-cf_zone_id: your_zone_id
-cf_A_id: your_A_id
-cf_AAAA_id: your_AAAA_id
-cf_proxied_AAAA_id: your_proxied_AAAA_id

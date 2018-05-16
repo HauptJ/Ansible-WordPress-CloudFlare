@@ -2,16 +2,22 @@
 # @Date:   26-Mar-2018
 # @Email:  josh@hauptj.com
 # @Filename: site.yml
-# @Last modified by:   HauptJ
-# @Last modified time: 03-Apr-2018
+# @Last modified by:   Haupt Joshua
+# @Last modified time: 28-Apr-2018
 
 ---
 - name: Install Fail2ban, WordPress, Redis, MariaDB, Nginx, and PHP-FPM
   hosts: wordpress
+  vars_files:
+    - "group_vars/wordpress/vars.yml"
+    - "group_vars/wordpress/vault.yml"
   #strategy: debug
   #remote_user: centos
   become: yes
 
+# Install Galaxy Roles
+  pre_tasks:
+    - local_action: command ansible-galaxy install -r requirements.yml --ignore-errors
 
   roles:
     - ansible-role-repo-epel

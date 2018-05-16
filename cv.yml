@@ -1,0 +1,30 @@
+# @Author: Haupt Joshua <HauptJ>
+# @Date:   26-Mar-2018
+# @Email:  josh@hauptj.com
+# @Filename: site.yml
+# @Last modified by:   Haupt Joshua
+# @Last modified time: 28-Apr-2018
+
+---
+- name: Install Fail2ban, and OpenResty Nginx
+  hosts: cv
+  # TODO: Find out why wordpress group vars are being used
+  # TEMP fix for issue noted above
+  vars_files:
+    - "group_vars/cv/vars.yml"
+    - "group_vars/cv/vault.yml"
+  #strategy: debug
+  #remote_user: centos
+  become: yes
+
+# Install Galaxy Roles
+  pre_tasks:
+    - local_action: command ansible-galaxy install -r requirements.yml --ignore-errors
+
+  roles:
+    - ansible-role-repo-epel
+    - ansible-role-repo-remi
+    - ansible-role-updates
+    #- ansible-role-selinux # cannot test in Vagrant or Docker due to required reboot
+    - ansible-role-fail2ban-firewalld
+    - ansible-role-openresty

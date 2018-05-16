@@ -1,0 +1,35 @@
+- src: https://github.com/HauptJ/ansible-role-repo-epel
+  version: master
+  name: geerlingguy.repo-epel
+
+- src: https://github.com/HauptJ/ansible-role-repo-remi
+  version: master
+  name: geerlingguy.repo-remi
+
+- src: https://github.com/HauptJ/ansible-role-openresty
+  version: master
+  name: HauptJ.openresty
+
+- src: https://github.com/HauptJ/ansible-role-redis
+  version: master
+  name: HauptJ.redis
+
+- src: https://github.com/HauptJ/ansible-role-mariadb
+  version: master
+  name: HauptJ.mariadb
+
+- src: https://github.com/HauptJ/ansible-role-php-fpm
+  version: master
+  name: HauptJ.php-fpm
+
+- src: https://github.com/HauptJ/ansible-role-selinux
+  version: master
+  name: HauptJ.selinux
+
+- src: https://github.com/HauptJ/ansible-role-updates
+  version: master
+  name: HauptJ.ansible-role-updates
+
+- src: https://github.com/HauptJ/ansible-role-ipv6
+  version: master
+  name: HauptJ.ipv6

@@ -4,12 +4,16 @@
 # commented out commands. See: Vagrantfile
 
 $centos_box = "hauptj/CentOS74"
-$centos_box_ver = "14.4.2018"
-$centos_vmname = "CloudPress2"
+$centos_box_ver = "26.4.2018"
+$wordpress_vmname = "wordpress"
+$cv_vmname = "cv"
+$utility_vmname = "utility"
 
 # NOTE: By default, at least 2 vcpus are required to compile OpenResty from source.
 # SEE: group_vars/all.yml.example
 # SEE: roles/ansible-role-openresty/defaults/main.yml
 $vcpus = "4"
+$cv_vcpus = "2"
 
 $vmem  = "4096"
+$cv_vmem = "2048"
