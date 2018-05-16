@@ -16,8 +16,8 @@
   become: yes
 
 # Install Galaxy Roles
-- name: run ansible galaxy
-  local_action: command ansible-galaxy install -r requirements.yml --ignore-errors
+  pre_tasks:
+    - local_action: command ansible-galaxy install -r requirements.yml --ignore-errors
 
   roles:
     - ansible-role-repo-epel

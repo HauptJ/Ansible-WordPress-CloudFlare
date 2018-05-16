@@ -17,6 +17,9 @@
   #remote_user: centos
   become: yes
 
+# Install Galaxy Roles
+  pre_tasks:
+    - local_action: command ansible-galaxy install -r requirements.yml --ignore-errors
 
   roles:
     - ansible-role-repo-epel
