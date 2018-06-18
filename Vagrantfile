@@ -99,6 +99,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "cv" do |cv|
     cv.vm.box = $centos_box
     cv.vm.box_version = $centos_box_ver
+    cv.ssh.username = $ssh_user
 
   	cv.vm.provider "hyperv" do |hv|
   		hv.vmname = $cv_vmname
@@ -130,6 +131,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "wordpress" do |wordpress|
     wordpress.vm.box = $centos_box
     wordpress.vm.box_version = $centos_box_ver
+    wordpress.ssh.username = $ssh_user
 
   	wordpress.vm.provider "hyperv" do |hv|
   		hv.vmname = $wordpress_vmname
@@ -137,6 +139,8 @@ Vagrant.configure("2") do |config|
   		hv.cpus = $vcpus
   		# With nested virtualization, at least 4GB of memory is needed.
   		hv.memory = $vmem
+      # Mac Address
+      hv.mac = $wordpress_mac
       # Faster cloning and uses less disk space
       hv.differencing_disk = true
   	end

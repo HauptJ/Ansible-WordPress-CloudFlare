@@ -3,9 +3,11 @@
 # If you wish to use another Vagrant box, you will have to uncomment the
 # commented out commands. See: Vagrantfile
 
-$centos_box = "hauptj/CentOS74"
-$centos_box_ver = "26.4.2018"
+$centos_box = "hauptj/CentOS75"
+$centos_box_ver = "1.1.0"
+$ssh_user = "root"
 $wordpress_vmname = "wordpress"
+$wordpress_mac = "ECB8B9AFE1F5"
 $cv_vmname = "cv"
 $utility_vmname = "utility"
 
