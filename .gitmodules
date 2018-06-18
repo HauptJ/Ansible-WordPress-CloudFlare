@@ -56,3 +56,10 @@
 [submodule "roles/ansible-role-cloudflare"]
 	path = roles/ansible-role-cloudflare
 	url = https://github.com/HauptJ/ansible-role-cloudflare.git
+[submodule "roles/ansible-role-mariadb-backup"]
+	path = roles/ansible-role-mariadb-backup
+	url = https://github.com/HauptJ/ansible-role-mariadb-backup.git
+	branch = pipeline
+[submodule "roles/ansible-role-wp-uploads-backup"]
+	path = roles/ansible-role-wp-uploads-backup
+	url = https://github.com/HauptJ/ansible-role-wp-uploads-backup.git
