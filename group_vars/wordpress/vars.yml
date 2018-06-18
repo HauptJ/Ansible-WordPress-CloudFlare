@@ -8,6 +8,12 @@
 ---
 # Variables listed here are applicable to all host groups
 
+##### ADMIN Email #####
+admin_email: "{{ vault_admin_email }}"
+admin_email_server: "{{ vault_admin_email_server }}"
+admin_email_password: "{{ vault_admin_email_password }}"
+admin_name: "{{ vault_admin_name }}"
+
 ##### Updates #####
 # Enable or disable automatic updates
 auto_updates: true
@@ -35,10 +41,12 @@ sel_ci_test: false
 # Create a new database for WordPress or use an existing one
 # true: create new database
 # false: upload existing database
-mariadb_new_db: true
+mariadb_new_db: false
 mariadb_db_name: "{{ vault_mariadb_db_name }}"
 mariadb_db_user: "{{ vault_mariadb_db_user }}"
 mariadb_db_user_password: "{{ vault_mariadb_db_user_password }}"
+
+mariadb_db_backup_dir: ../../databases
 
 # filename of existing database
 # NOTE: if mariadb_new_db == false
@@ -81,7 +89,7 @@ htpasswd_pass: "{{ vault_htpasswd_pass }}"
 nginx_ipv6:  2607:5300:201:2100::5:1111 # Now only applies to proof of concept cloudflare role
 nginx_port: 443
 server_hostname: "{{ vault_server_hostname }}" # REQUIRED for self-signed SSL certificates in openresty role
-admin_email: "{{ vault_admin_email }}" # TODO: Check if safe to remove
+
 
 # Web Directories
 # Default directory
@@ -156,6 +164,9 @@ resty_ci_test: false
 
 ##### PHP #####
 
+php_upload_max_filesize: "15M"
+php_memory_limit: "512M"
+
 # PHP Socket
 php_sock: /var/run/wordpress.sock
 
@@ -206,6 +217,8 @@ f2b_ci_test: false
 
 
 ##### WordPress #####
+
+wp_uploads_backup_dir: ../../uploads
 
 # WordPress Salt
 wp_cache_salt: "{{ vault_wp_cache_salt }}"
