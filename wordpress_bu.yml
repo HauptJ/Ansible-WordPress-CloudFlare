@@ -1,0 +1,13 @@
+---
+- name: Backup WordPress Database
+  hosts: wordpress
+  vars_files:
+    - "group_vars/wordpress/vars.yml"
+    - "group_vars/wordpress/vault.yml"
+  #strategy: debug
+  #remote_user: centos
+  become: yes
+
+  roles:
+    - ansible-role-mariadb-backup
+    - ansible-role-wp-uploads-backup
