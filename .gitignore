@@ -5,3 +5,7 @@ bu.vault.yml
 #vault.yml
 \.vagrant
 /.vagrant
+\~None
+/~None
+\uploads
+/uploads

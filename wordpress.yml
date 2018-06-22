@@ -18,6 +18,7 @@
   roles:
     - ansible-role-repo-epel
     - ansible-role-repo-remi
+    - ansible-role-selinux
     - ansible-role-updates
     - ansible-role-fail2ban-firewalld
     - ansible-role-redis
@@ -25,4 +26,3 @@
     - ansible-role-mariadb
     - ansible-role-php-fpm
     - ansible-role-wordpress
-    - ansible-role-selinux # cannot test in Vagrant or Docker due to required reboot
