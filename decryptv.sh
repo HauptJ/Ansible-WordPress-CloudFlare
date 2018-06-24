@@ -8,4 +8,3 @@ cp deploy.vault ~/deploy.vault
 chmod -x ~/deploy.vault
 
 ansible-vault decrypt group_vars/wordpress/vault.yml --vault-password-file ~/deploy.vault
-ansible-vault decrypt group_vars/cv/vault.yml --vault-password-file ~/deploy.vault

@@ -8,5 +8,4 @@ chmod -x ~/vault_test.txt
 # Run in Ansible directory
 sudo su
 ansible-vault encrypt group_vars/wordpress/vault.yml --vault-password-file ~/vault_test.txt
-ansible-vault encrypt group_vars/cv/vault.yml --vault-password-file ~/vault_test.txt
 su vagrant
