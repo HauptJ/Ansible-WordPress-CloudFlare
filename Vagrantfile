@@ -120,7 +120,7 @@ Vagrant.configure("2") do |config|
     # Run Ansible Playbook
     cp deploy.vault ~/deploy.vault
     chmod -x ~/deploy.vault
-    ansible-playbook wordpress.yml --vault-password-file ~/deploy.vault
+    ansible-playbook wordpress.yml --vault-password-file ~/deploy.vault --skip-tags "restart,deploy,new,repo,test,selinux"
     popd
     chown -R vagrant:vagrant /vagrant
     SHELL
