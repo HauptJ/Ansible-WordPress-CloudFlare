@@ -1,9 +1,3 @@
-# @Author: Haupt Joshua <HauptJ>
-# @Date:   26-Mar-2018
-# @Email:  josh@hauptj.com
-# @Filename: Vagrantfile
-# @Last modified by:   HauptJ
-# @Last modified time: 03-Apr-2018
 
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
@@ -96,37 +90,6 @@ Vagrant.configure("2") do |config|
   # External V-Switch
   config.vm.network "public_network", bridge: "LANBridge"
 
-  config.vm.define "cv" do |cv|
-    cv.vm.box = $centos_box
-    cv.vm.box_version = $centos_box_ver
-    cv.ssh.username = $ssh_user
-
-  	cv.vm.provider "hyperv" do |hv|
-  		hv.vmname = $cv_vmname
-  		# With nested virtualization, at least 2 CPUs are needed.
-  		hv.cpus = $cv_vcpus
-  		# With nested virtualization, at least 4GB of memory is needed.
-  		hv.memory = $cv_vmem
-      # Faster cloning and uses less disk space
-      hv.differencing_disk = true
-  	end
-
-    cv.vm.provision "shell", inline: <<-SHELL
-    # Install Dependencies from Ansible Galaxy
-    pushd /vagrant
-    ansible-galaxy install geerlingguy.repo-epel
-    ansible-galaxy install geerlingguy.repo-remi
-    ansible-galaxy install HauptJ.openresty
-    # Run Ansible Playbook
-    cp deploy.vault ~/deploy.vault
-    chmod -x ~/deploy.vault
-    ansible-playbook cv.yml --vault-password-file ~/deploy.vault
-    popd
-    chown -R vagrant:vagrant /vagrant
-    SHELL
-
-  end
-
 
   config.vm.define "wordpress" do |wordpress|
     wordpress.vm.box = $centos_box
@@ -163,40 +126,6 @@ Vagrant.configure("2") do |config|
     SHELL
 
   end
-
-
-  #config.vm.define "utility" do |utility|
-  #  utility.vm.box = $centos_box
-  #  utility.vm.box_version = $centos_box_ver
-#
-#  	utility.vm.provider "hyperv" do |hv|
-#  		hv.vmname = $utility_vmname
-#  		# With nested virtualization, at least 2 CPUs are needed.
-#  		hv.cpus = $vcpus
-#  		# With nested virtualization, at least 4GB of memory is needed.
-#  		hv.memory = $vmem
-#      # Faster cloning and uses less disk space
-#      hv.differencing_disk = true
-#  	end
-#
-#    utility.vm.provision "shell", inline: <<-SHELL
-#    # Install Dependencies from Ansible Galaxy
-#    pushd /vagrant
-#    ansible-galaxy install geerlingguy.repo-epel
-#    ansible-galaxy install geerlingguy.repo-remi
-#    ansible-galaxy install HauptJ.mariadb
-#    ansible-galaxy install HauptJ.redis
-#    ansible-galaxy install HauptJ.openresty
-#    ansible-galaxy install HauptJ.php-fpm
-#    # Run Ansible Playbook
-#    cp vault_test.txt ~/vault_test.txt
-#    chmod -x ~/vault_test.txt
-#    #ansible-playbook --vault-password-file ~/vault_test.txt site.yml
-#    popd
-#    chown -R vagrant:vagrant /vagrant
-#    SHELL
-#
-#  end
 
   # View the documentation for the provider you are using for more
   # information on available options.
