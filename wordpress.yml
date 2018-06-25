@@ -15,15 +15,11 @@
   #remote_user: centos
   become: yes
 
-# Install Galaxy Roles
-  pre_tasks:
-    - local_action: command ansible-galaxy install -r requirements.yml --ignore-errors
-
   roles:
     - ansible-role-repo-epel
     - ansible-role-repo-remi
+    - ansible-role-selinux
     - ansible-role-updates
-    #- ansible-role-selinux # cannot test in Vagrant or Docker due to required reboot
     - ansible-role-fail2ban-firewalld
     - ansible-role-redis
     - ansible-role-openresty

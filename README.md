@@ -8,14 +8,18 @@ Configuration file: ```group_vars/all.yml```. Use ```all.example``` as a documen
 
 The ```ansible-role-ipv6``` role is only necessary if your host supports IPv6 but does not provide an image that supports it out of the box without custom configuration.  To use this role you need to specify the ipv6 address and gateway as a ```host_vars``` variable. DigitalOcean supports IPv6 out of the box, while OVH's Cloud and OpenStack require it to be enabled manually.
 
-The ```ansible-role-cloudflare``` role is called from dns.yml and it can be used to automatically configure DNS records for an ***existing zone*** using CloudFlare's API.
+The ```ansible-role-cloudflare``` **[DEPRECIATED]** role is called from dns.yml and it can be used to automatically configure DNS records for an ***existing zone*** using CloudFlare's API.
 
 Playbooks
 ---------
 
-**dns.yml**: Sets up DNS records using CloudFlare API
 
-**site.yml**: Installs and configures Wordpress
+
+**wordpress.yml**: Installs and configures Wordpress
+
+**wordpress_bu.yml**: Backs up WordPress database via Email as well as locally. Also backs up uploads locally.
+
+**dns.yml**: **[DEPRECIATED]** Sets up DNS records using CloudFlare API
 
 Requires
 ---------
