@@ -1,6 +1,4 @@
-
 ---
-# Variables listed here are applicable to all host groups
 
 ##### ADMIN Email #####
 admin_email: "{{ vault_admin_email }}"
@@ -12,9 +10,6 @@ admin_name: "{{ vault_admin_name }}"
 # Enable or disable automatic updates
 auto_updates: true
 
-# CI testing, this should only be set to true for testing
-updates_ci_test: false
-
 
 ##### SE Linux #####
 
@@ -22,9 +17,6 @@ updates_ci_test: false
 # true == disabled
 # false == enabled
 sel_disable: true
-
-# CI test, this should only be set to true for CI testing
-sel_ci_test: false
 
 
 ##### MariaDB #####
@@ -53,8 +45,6 @@ mariadb_port: 3306
 mariadb_set_root_password: true
 mariadb_root_password: "{{ vault_mariadb_root_password }}"
 
-# CI test, this should only be set to true for testing
-mariadb_ci_test: false
 
 ##### Redis #####
 
@@ -67,9 +57,6 @@ rd_mem_pol: allkeys-lru
 # Optimize system for Redis
 # NOTE: BROKEN
 rd_optimize: false
-
-# CI testing, this should only be set to true for testing
-rd_ci_test: false
 
 
 ##### NGINX / OpenResty #####
@@ -152,9 +139,6 @@ resty_web_user: nginx
 with_sha1: "/usr/include/openssl"
 with_md5: "/usr/include/openssl"
 
-# CI test, should only be set to true for testing
-resty_ci_test: false
-
 
 ##### PHP #####
 
@@ -163,9 +147,6 @@ php_memory_limit: "512M"
 
 # PHP Socket
 php_sock: /var/run/wordpress.sock
-
-# Should only be set to true for testing
-php_ci_test: false
 
 
 ##### IPv6 Network #####
@@ -184,14 +165,10 @@ ipv4_addr: 54.39.111.111
 ipv6_addr: 2607:5300:201:2100::5:1111/128
 ipv6_gate: 2607:5300:201:2100::1
 
-# Overrides CI testing default
-# This should only be set to true for testing
-ipv6_ci_test: false
-
 
 ##### Firewalld and Fail2Ban #####
 
-firewalld_installed: true
+firewalld_installed: true # TODO: check if safe to remove
 
 # CloudFlare account Email
 cf_email: "{{ vault_cf_email }}"
@@ -199,15 +176,14 @@ cf_email: "{{ vault_cf_email }}"
 cf_key: "{{ vault_cf_key }}"
 
 # times are in seconds
-f2b_bantime: 864000
-f2b_findtime: 10800
-f2b_maxretry: 4
+# In Seconds
+f2b_bantime: "{{ vault_f2b_bantime }}"
+f2b_findtime: "{{ vault_f2b_findtime }}"
+f2b_maxretry: "{{ vault_f2b_maxretry }}"
+
 f2b_whitelist_ip: "{{ vault_f2b_whitelist_ip }}"
 f2b_destemail: "{{ vault_f2b_destemail }}"
 f2b_sender: "{{ vault_f2b_sender }}"
-
-# CI test, this should only be set to true for testing
-f2b_ci_test: false
 
 
 ##### WordPress #####
@@ -224,9 +200,6 @@ auto_up_disable: false
 # false = Development, minor, and major updates are all disabled
 # minor = Minor updates are enabled, development, and major updates are disabled
 core_update_level: true
-
-# CI test, should only be set to true for CI testing
-wp_ci_test: false
 
 
 ##### CloudFlare #####

@@ -26,5 +26,10 @@ vault_f2b_sender: josh@hauptj.com
 vault_cf_key: b9faa4e1bc3b9ee8d9d1166c8ebe996d5da09
 vault_f2b_whitelist_ip: 8.8.8.8
 
+# In seconds
+vault_f2b_bantime: 864000
+vault_f2b_findtime: 10800
+vault_f2b_maxretry: 4
+
 ##### WordPress #####
 vault_wp_cache_salt: FUCKYOU!2
