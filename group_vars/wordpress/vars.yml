@@ -186,7 +186,7 @@ f2b_destemail: "{{ vault_f2b_destemail }}"
 f2b_sender: "{{ vault_f2b_sender }}"
 
 open_ports:
-  -443/tcp
+- 443/tcp
 
 ##### WordPress #####
 
