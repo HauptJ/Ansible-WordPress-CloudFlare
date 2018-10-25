@@ -2,7 +2,7 @@
 *.sql
 *.vault
 bu.vault.yml
-vault.yml
+#vault.yml
 \.vagrant
 /.vagrant
 \~None
