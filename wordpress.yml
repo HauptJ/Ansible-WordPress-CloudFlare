@@ -1,9 +1,9 @@
 # @Author: Haupt Joshua <HauptJ>
 # @Date:   26-Mar-2018
 # @Email:  josh@hauptj.com
-# @Filename: site.yml
+# @Filename: wordpress.yml
 # @Last modified by:   Haupt Joshua
-# @Last modified time: 28-Apr-2018
+# @Last modified time: 08-Sept-2018
 
 ---
 - name: Install Fail2ban, WordPress, Redis, MariaDB, Nginx, and PHP-FPM

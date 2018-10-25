@@ -2,7 +2,9 @@
 *.sql
 *.vault
 bu.vault.yml
-#vault.yml
+vault.yml
+group_vars/wordpress/vault.yml
+group_vars\wordpress\vault.yml
 \.vagrant
 /.vagrant
 \~None
