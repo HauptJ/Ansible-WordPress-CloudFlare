@@ -4,7 +4,7 @@
 # commented out commands. See: Vagrantfile
 
 $centos_box = "hauptj/CentOS75"
-$centos_box_ver = "1.2.0"
+$centos_box_ver = "1.2.1"
 $ssh_user = "root"
 $wordpress_vmname = "wordpress"
 $wordpress_mac = "ECB8B9AFE1F5"
