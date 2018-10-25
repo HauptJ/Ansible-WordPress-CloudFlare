@@ -40,8 +40,8 @@ mariadb_db_file_name: "{{ vault_mariadb_db_file_name }}"
 
 # If the server / cloud service provider provides a firewall to limit access to certain IP's
 # you can safetly open the MariaDB port. If not, I would advise keeping it closed.
-mariadb_open_port: false
-mariadb_port: 3306
+# mariadb_open_port: false TODO: REMOVE
+# mariadb_port: 3306 TODO: REMOVE
 mariadb_set_root_password: true
 mariadb_root_password: "{{ vault_mariadb_root_password }}"
 
@@ -83,7 +83,7 @@ resty_conf_dir: /usr/local/openresty/nginx/conf
 # Log directory
 resty_log_dir: /var/log/openresty
 
-openresty_version: 1.11.2.5
+openresty_version: 1.13.6.2
 openresty_download_url: https://openresty.org/download/openresty-
 with_luajit: false
 with_dav: false
@@ -157,7 +157,7 @@ php_sock: /var/run/wordpress.sock
 # true: configures the server for IPv6 if not already preconfigured
 # If you are using OVH public cloud or OVH OpenStack, this should be set to true
 # If you are using DigitalOcean, this should be set to false
-ipv6_setup: true
+ipv6_setup: false
 
 # The server IPv4 address is only necessary if with to use the proof of concept
 # cloudflare role
@@ -185,6 +185,8 @@ f2b_whitelist_ip: "{{ vault_f2b_whitelist_ip }}"
 f2b_destemail: "{{ vault_f2b_destemail }}"
 f2b_sender: "{{ vault_f2b_sender }}"
 
+open_ports:
+  -443/tcp
 
 ##### WordPress #####
 
@@ -203,6 +205,7 @@ core_update_level: true
 
 
 ##### CloudFlare #####
+# NOTE: NO LONGER MAINTAINED, use Terraform instead
 
 cf_bypass_name: srv.example.com
 cf_new_record: true
