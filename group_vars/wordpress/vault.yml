@@ -4,26 +4,26 @@
 ##### Admin Email #####
 vault_admin_name: Joshua Haupt
 vault_admin_email: josh@hauptj.com
-vault_admin_email_password: 1c4nh4zsk00m4!
+vault_admin_email_password: cat
 vault_admin_email_server: smtp.gmail.com
 
 ##### MariaDB #####
 vault_mariadb_db_name: hauptjWP
 vault_mariadb_db_user: hauptjWPUser
-vault_mariadb_db_user_password: FUCKS1U3
+vault_mariadb_db_user_password: cat
 vault_mariadb_db_file_name: hauptjWP.sql
-vault_mariadb_root_password: FUCKS1U3
+vault_mariadb_root_password: cat
 
 ##### OpenResty #####
 vault_htpasswd_user: joshua
-vault_htpasswd_pass: FUCKS1U3
+vault_htpasswd_pass: cat
 vault_server_hostname: hauptj.com
 
 ##### Fail2Ban Firewalld #####
 vault_cf_email: josh@hauptj.com
 vault_f2b_destemail: josh@hauptj.com
 vault_f2b_sender: josh@hauptj.com
-vault_cf_key: b9faa4e1bc3b9ee8d9d1166c8ebe996d5da09
+vault_cf_key: cat
 vault_f2b_whitelist_ip: 8.8.8.8
 
 # In seconds
@@ -32,4 +32,4 @@ vault_f2b_findtime: 10800
 vault_f2b_maxretry: 4
 
 ##### WordPress #####
-vault_wp_cache_salt: FUCKYOU!2
+vault_wp_cache_salt: cat
