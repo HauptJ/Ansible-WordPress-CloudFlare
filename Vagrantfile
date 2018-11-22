@@ -111,12 +111,6 @@ Vagrant.configure("2") do |config|
     wordpress.vm.provision "shell", inline: <<-SHELL
     # Install Dependencies from Ansible Galaxy
     pushd /vagrant
-    ansible-galaxy install geerlingguy.repo-epel
-    ansible-galaxy install geerlingguy.repo-remi
-    ansible-galaxy install HauptJ.mariadb
-    ansible-galaxy install HauptJ.redis
-    ansible-galaxy install HauptJ.openresty
-    ansible-galaxy install HauptJ.php-fpm
     # Run Ansible Playbook
     cp deploy.vault ~/deploy.vault
     chmod -x ~/deploy.vault
